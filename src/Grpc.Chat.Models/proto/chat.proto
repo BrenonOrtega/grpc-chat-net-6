@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "Grpc.Chat.Models.Contracts";
+
+package grpc.client;
+
+service MessageSender {
+    rpc SendMessage(SendMessageCommand) returns (SentMessageResponse);
+}
+
+message SendMessageCommand {
+    string sender_id=1;
+    string text=2;
+    string ChatId=3;
+}
+
+message SentMessageResponse {
+    bool sent=1;
+    string chatId=2;
+}
